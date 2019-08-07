@@ -112,6 +112,18 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new artible
 
 */
+window.addEventListener('load', (e) => {
+
+  
+const articles = document.querySelector('.articles');
+console.log(articles);
+data.map(element => {
+  console.log('creating article:', element.title);
+   
+  articles.appendChild(createArticle(element.title, element.date, element.firstParagraph, element.secondParagraph, element.thirdParagraph, "Click To Open"));
+});
+
+
 
 function createArticle (title, date, firstP, secondP, thirdP, buttonContent) {
 //defining new elements
@@ -134,7 +146,7 @@ article.appendChild(button);
 // setup class names
 article.classList.add('article');
 articleDate.classList.add('date');
-button.classList.add('expandButton');
+button.classList.add('expandButton')
 
 // setup text content
 title1.textContent = title;
@@ -153,3 +165,8 @@ button.addEventListener('click', event => {
 
 return article;
 }
+
+});
+
+///// map over data
+

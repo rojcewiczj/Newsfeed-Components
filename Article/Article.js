@@ -115,6 +115,20 @@ const data = [
 
 function createArticle (title, date, firstP, secondP, thirdP) {
 //defining new elements
+const article = document.createElement('div');
+const title = document.createElement('h2');
+const articleDate = document.createElement('p');
+const para1 = document.createElement('p');
+const para2 = document.createElement('p');
+const para3 = document.createElement('p');
+const button = document.createElement('span');
 
+// setup Parent/Child structure of elements
+article.appendChild(title);
+article.appendChild(articleDate);
+article.appendChild(para1);
+article.appendChild(para2);
+article.appendChild(para3);
+article.appendChild(button);
 
 }

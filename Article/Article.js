@@ -131,4 +131,9 @@ article.appendChild(para2);
 article.appendChild(para3);
 article.appendChild(button);
 
+// setup class names
+article.classList.add('article');
+articleDate.classList.add('date');
+button.classList.add('expandButton');
+
 }

@@ -113,10 +113,10 @@ const data = [
 
 */
 
-function createArticle (title, date, firstP, secondP, thirdP) {
+function createArticle (title, date, firstP, secondP, thirdP, buttonContent) {
 //defining new elements
 const article = document.createElement('div');
-const title = document.createElement('h2');
+const title1 = document.createElement('h2');
 const articleDate = document.createElement('p');
 const para1 = document.createElement('p');
 const para2 = document.createElement('p');
@@ -124,7 +124,7 @@ const para3 = document.createElement('p');
 const button = document.createElement('span');
 
 // setup Parent/Child structure of elements
-article.appendChild(title);
+article.appendChild(title1);
 article.appendChild(articleDate);
 article.appendChild(para1);
 article.appendChild(para2);
@@ -136,4 +136,20 @@ article.classList.add('article');
 articleDate.classList.add('date');
 button.classList.add('expandButton');
 
+// setup text content
+title1.textContent = title;
+articleDate.textContent = date;
+para1.textContent = firstP;
+para2.textContent = secondP;
+para3.textContent = thirdP;
+button.textContent = buttonContent;
+
+
+button.addEventListener('click', event => {
+  console.log('button clicked', event.target)
+  article.classList.toggle('article-open');
+  
+})
+
+return article;
 }

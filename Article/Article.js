@@ -114,6 +114,7 @@ const data = [
 */
 window.addEventListener('load', (e) => {
 
+  data.unshift( {title: "hello world", date: 'this is a test', firstParagraph: 'you know a test?', secondParagraph: 'as in it doesnt really do anything', thirdParagraph:'but it helps you learn!'});
   
 const articles = document.querySelector('.articles');
 console.log(articles);

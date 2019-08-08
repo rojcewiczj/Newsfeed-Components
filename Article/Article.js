@@ -121,12 +121,12 @@ console.log(articles);
 data.map(element => {
   console.log('creating article:', element.title);
    
-  articles.appendChild(createArticle(element.title, element.date, element.firstParagraph, element.secondParagraph, element.thirdParagraph, "Click To Open"));
+  articles.appendChild(createArticle(element.title, element.date, element.firstParagraph, element.secondParagraph, element.thirdParagraph, "Click To Open", "Read"));
 });
 
 
 
-function createArticle (title, date, firstP, secondP, thirdP, buttonContent) {
+function createArticle (title, date, firstP, secondP, thirdP, buttonContent, button1Content) {
 //defining new elements
 const article = document.createElement('div');
 const title1 = document.createElement('h2');
@@ -135,7 +135,7 @@ const para1 = document.createElement('p');
 const para2 = document.createElement('p');
 const para3 = document.createElement('p');
 const button = document.createElement('span');
-
+const button1 = document.createElement('span');
 // setup Parent/Child structure of elements
 article.appendChild(title1);
 article.appendChild(articleDate);
@@ -143,12 +143,12 @@ article.appendChild(para1);
 article.appendChild(para2);
 article.appendChild(para3);
 article.appendChild(button);
-
+article.appendChild(button1);
 // setup class names
 article.classList.add('article');
 articleDate.classList.add('date');
-button.classList.add('expandButton')
-
+button.classList.add('expandButton');
+button1.classList.add('expandButton1');
 // setup text content
 title1.textContent = title;
 articleDate.textContent = date;
@@ -156,12 +156,18 @@ para1.textContent = firstP;
 para2.textContent = secondP;
 para3.textContent = thirdP;
 button.textContent = buttonContent;
-
+button1.textContent = button1Content;
 
 button.addEventListener('click', event => {
   console.log('button clicked', event.target)
   article.classList.toggle('article-open');
+  TweenLite.from(button, 2, {x: '-=200px', autoAlpha: 0});
   
+})
+button1.addEventListener('dblclick', event => {
+  console.log('button clicked', event.target)
+  article.classList.toggle('article-open');
+  TweenLite.from(button1, 2, {y: '-=200px', autoAlpha: 0});
 })
 
 return article;
@@ -171,3 +177,5 @@ return article;
 
 ///// map over data
 
+
+ 

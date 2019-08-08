@@ -78,7 +78,7 @@ return menu
  document.querySelector('.menu-button').addEventListener('click', event => {
   console.log('button clicked', event.target)
   document.querySelector('.menu').classList.toggle('menu--open');
-  
+  TweenLite.from(document.querySelector('.menu'), 5, {y: '-=200px', autoAlpha: 0});
 })
 
 

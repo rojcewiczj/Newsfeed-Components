@@ -33,3 +33,53 @@ let menuItems = [
   Step 6: add the menu component to the DOM.
   
 */
+window.addEventListener('load', (e) => {
+
+const Menu = document.querySelector('.header');
+console.log(Menu);
+
+Menu.appendChild(menuCreator(menuItems));
+
+
+
+function menuCreator (array) {
+  //defining new elements
+  const menu = document.createElement('div');
+ 
+  const UL = document.createElement('ul');
+  
+  //setup for parent/child relationships
+   array.forEach(element =>{
+     const LI = document.createElement('li');
+      UL.appendChild(LI);
+      LI.textContent = element;
+  
+   })
+  
+  menu.appendChild(UL);
+  
+  
+
+
+  /// set class names
+
+  menu.classList.add('menu');
+
+
+ // set text content
+ 
+ ///
+
+
+
+return menu
+}
+
+ document.querySelector('.menu-button').addEventListener('click', event => {
+  console.log('button clicked', event.target)
+  document.querySelector('.menu').classList.toggle('menu--open');
+  TweenLite.from(document.querySelector('.menu'), 5, {y: '-=200px', autoAlpha: 0});
+})
+
+
+});
